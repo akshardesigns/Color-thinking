@@ -418,7 +418,7 @@ function discPosToHS(px,py){
   return{hue:((Math.atan2(dy,dx)*180/Math.PI)+90+360)%360,sat:Math.min(1,Math.sqrt(dx*dx+dy*dy)/DISC_R)};
 }
 function valToRingAngle(v){return(270+v*180)%360;}
-function ringAngleToVal(deg){return(Math.sin(deg*Math.PI/180)+1)/2;}
+function ringAngleToVal(deg){return(1 - Math.cos(deg * Math.PI / 180)) / 2;}
 function angleToRingPos(deg){
   const a=(deg-90)*Math.PI/180;
   return{x:CX+RING_MID*Math.cos(a),y:CY+RING_MID*Math.sin(a)};
